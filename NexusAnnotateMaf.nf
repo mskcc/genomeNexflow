@@ -19,7 +19,7 @@ process NexusAnnotateMaf {
     bash /annotation-tools/annotation_suite_wrapper.sh \
       -i=${inputDir} \
       -o=${params.outDir}/${params.outName} \
-      -m=${params.outname}.genomeNexus_merged_mutation.out \
+      -m=${params.outName}.genomeNexus_merged_mutation.out \
       -c=CMO \
       -s=${processType} \
       -p=/annotation-tools
