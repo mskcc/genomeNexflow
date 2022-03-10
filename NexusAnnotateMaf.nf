@@ -1,15 +1,14 @@
 process NexusAnnotateMaf {
-  publishDir "${params.outDir}/${params.outname}/", mode: params.publishDirMode, pattern: "*.maf"
+  publishDir "${params.outDir}/${params.outName}/", mode: params.publishDirMode, pattern: "*.maf"
 
   input:
     path(inputDir)
-    val(target)
    
   output:
-    path("${params.outname}.genomeNexus.maf"), emit: nexusMaf
+    path("${params.outName}.genomeNexus.maf"), emit: nexusMaf
 
   script:
-    if (target == "wgs") {
+    if (params.runType == "WGS") {
       processType = "WGS"
     }
     else {
@@ -19,12 +18,12 @@ process NexusAnnotateMaf {
     """
     bash /annotation-tools/annotation_suite_wrapper.sh \
       -i=${inputDir} \
-      -o=${params.outDir}/${params.outname} \
+      -o=${params.outDir}/${params.outName} \
       -m=${params.outname}.genomeNexus_merged_mutation.out \
       -c=CMO \
       -s=${processType} \
       -p=/annotation-tools
 
-    cp ${params.outname}.genomeNexus_merged_mutation.out ${params.outname}.genomeNexus.maf
+    cp ${params.outName}.genomeNexus_merged_mutation.out ${params.outName}.genomeNexus.maf
     """
 }
