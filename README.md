@@ -18,7 +18,7 @@ The docker container is located here:
 ---
 ### Test Data
 
-Test data is provided in the input_test/ directory. The subdirectory nexus/ contains data provided by the genome nexus team, and the tempo/ directory contains data generated using the tempo pipeline.
+Test data is provided in the test_input/ directory. The subdirectory nexus/ contains data provided by the genome nexus team, and the tempo/ directory contains data generated using the tempo pipeline.
 
 ---
 ### Parameters & Example Run
