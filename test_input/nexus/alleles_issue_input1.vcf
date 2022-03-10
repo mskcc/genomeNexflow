@@ -1,0 +1,24 @@
+##fileformat=VCFv4.1
+##FORMAT=<ID=GQX,Number=1,Type=Integer,Description="Minimum of {Genotype quality assuming variant position,Genotype quality assuming non-variant position}">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allele Depth">
+##FORMAT=<ID=VF,Number=1,Type=Float,Description="Variant Frequency">
+##FORMAT=<ID=NL,Number=1,Type=Integer,Description="Applied BaseCall Noise Level">
+##FORMAT=<ID=SB,Number=1,Type=Float,Description="StrandBias Score">
+##INFO=<ID=TI,Number=.,Type=String,Description="Transcript ID">
+##INFO=<ID=GI,Number=.,Type=String,Description="Gene ID">
+##INFO=<ID=EXON,Number=0,Type=Flag,Description="Exon Region">
+##INFO=<ID=FR,Number=.,Type=String,Description="Functional Region">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=CCF,Number=.,Type=String,Description="Bnech classification">
+##INFO=<ID=cNomen,Number=.,Type=String,Description="cNomen">
+##INFO=<ID=pNomen,Number=.,Type=String,Description="pNomen">
+##FILTER=<ID=LowVariantFreq,Description="Low variant frequency < 0.01">
+##FILTER=<ID=LowGQ,Description="GQ below < 30.00">
+##FILTER=<ID=R8,Description="IndelRepeatLength is greater than 8">
+##FILTER=<ID=LowDP,Description="Low coverage (DP tag), therefore no genotype called">
+##FILTER=<ID=SB,Description="Variant strand bias too high">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele frequency per sample for each alternative allele, this is custom NKI annotation calculated from the values in the AD format field">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	GENIE-SAGE-1
+17	7578397	.	GAA	TCC	100	PASS	DP=11446;GI=KIT;TI=NM_000222.2;CCF=VOUS;cNomen=c.1671_1673delinsTCC;pNomen=p.W557_K588delinsCP	GT:GQ:AD:VF:GQX:AF	.:100:1629,2421:0.598:100:0.598

@@ -1,0 +1,342 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=artifact_in_normal,Description="artifact_in_normal">
+##FILTER=<ID=bad_haplotype,Description="Variant near filtered variant on same haplotype.">
+##FILTER=<ID=base_quality,Description="alt median base quality">
+##FILTER=<ID=chimeric_original_alignment,Description="NuMT variant with too many ALT reads originally from autosome">
+##FILTER=<ID=clustered_events,Description="Clustered events observed in the tumor">
+##FILTER=<ID=contamination,Description="contamination">
+##FILTER=<ID=duplicate_evidence,Description="evidence for alt allele is overrepresented by apparent duplicates">
+##FILTER=<ID=fragment_length,Description="abs(ref - alt) median fragment length">
+##FILTER=<ID=germline_risk,Description="Evidence indicates this site is germline, not somatic">
+##FILTER=<ID=low_avg_alt_quality,Description="Low average alt quality">
+##FILTER=<ID=mapping_quality,Description="ref - alt median mapping quality">
+##FILTER=<ID=multiallelic,Description="Site filtered because too many alt alleles pass tumor LOD">
+##FILTER=<ID=n_ratio,Description="Ratio of N to alt exceeds specified ratio">
+##FILTER=<ID=panel_of_normals,Description="Blacklisted site in panel of normals">
+##FILTER=<ID=read_orientation_artifact,Description="orientation bias detected by the orientation bias mixture model">
+##FILTER=<ID=read_position,Description="median distance of alt variants from end of reads">
+##FILTER=<ID=str_contraction,Description="Site filtered due to contraction of short tandem repeat region">
+##FILTER=<ID=strand_artifact,Description="Evidence for alt allele comes from one read direction only">
+##FILTER=<ID=strict_strand_bias,Description="Evidence for alt allele is not represented in both directions">
+##FILTER=<ID=t_lod,Description="Mutation does not meet likelihood threshold">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele fractions of alternate alleles in the tumor">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=F1R2,Number=R,Type=Integer,Description="Count of reads in F1R2 pair orientation supporting each allele">
+##FORMAT=<ID=F2R1,Number=R,Type=Integer,Description="Count of reads in F2R1 pair orientation supporting each allele">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##GATKCommandLine=<ID=FilterMutectCalls,CommandLine="FilterMutectCalls  --output DU874145-T__DU874145-N_agilent-0002-scattered.filtered.vcf.gz --stats DU874145-T__DU874145-N_agilent-0002-scattered.Mutect2FilteringStats.tsv --variant DU874145-T__DU874145-N_agilent-0002-scattered.vcf.gz  --log-somatic-prior -6.0 --tumor-lod 5.3 --normal-artifact-lod 0.0 --normal-p-value-threshold 0.001 --max-germline-posterior 0.1 --max-alt-allele-count 1 --min-pcr-slippage-size 8 --pcr-slippage-rate 0.1 --pcr-slippage-p-value 0.001 --min-median-mapping-quality 30 --min-median-base-quality 20 --max-median-fragment-length-difference 10000 --min-median-read-position 1 --max-events-in-region 2 --max-strand-artifact-probability 0.99 --min-strand-artifact-allele-fraction 0.01 --contamination-estimate 0.0 --max-contamination-probability 0.1 --unique-alt-read-count 0 --n-ratio Infinity --strict-strand-bias false --orientation-bias-fdr 0.05 --distance-on-haplotype 100 --long-indel-length 5 --lod-divided-by-depth 0.0035 --non-mt-alts-divided-by-alts 0.85 --mitochondria-mode false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version=4.1.0.0,Date="December 20, 2021 7:24:46 PM UTC">
+##GATKCommandLine=<ID=Mutect2,CommandLine="Mutect2  --tumor-sample DU874145-T --normal-sample DU874145-N --output DU874145-T__DU874145-N_agilent-0002-scattered.vcf.gz --intervals agilent-0002-scattered.interval_list --input DU874145-T.bam --input DU874145-N.bam --reference human_g1k_v37_decoy.fasta  --genotype-pon-sites false --genotype-germline-sites false --af-of-alleles-not-in-resource -1.0 --mitochondria-mode false --tumor-lod-to-emit 3.0 --initial-tumor-lod 2.0 --initial-pcr-qual 40 --max-population-af 0.01 --downsampling-stride 1 --max-suspicious-reads-per-alignment-start 0 --normal-lod 2.2 --max-mnp-distance 1 --ignore-itr-artifacts false --count-reads false --median-autosomal-coverage 0.0 --gvcf-lod-band -2.5 --gvcf-lod-band -2.0 --gvcf-lod-band -1.5 --gvcf-lod-band -1.0 --gvcf-lod-band -0.5 --gvcf-lod-band 0.0 --gvcf-lod-band 0.5 --gvcf-lod-band 1.0 --minimum-allele-fraction 0.0 --dont-trim-active-regions false --max-disc-ar-extension 25 --max-gga-ar-extension 300 --padding-around-indels 150 --padding-around-snps 20 --disable-adaptive-pruning false --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 1.0 --max-unpruned-variants 100 --debug-graph-transformations false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --likelihood-calculation-engine PairHMM --base-quality-score-threshold 18 --pair-hmm-gap-continuation-penalty 10 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --native-pair-hmm-threads 4 --native-pair-hmm-use-double-precision false --debug false --use-filtered-reads-for-annotations false --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --capture-assembly-failure-bam false --error-correct-reads false --do-not-run-physical-phasing false --min-base-quality-score 10 --smith-waterman JAVA --correct-overlapping-quality false --emit-ref-confidence NONE --use-new-qual-calculator true --use-old-qual-calculator false --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotyping-mode DISCOVERY --genotype-filtered-alleles false --contamination-fraction-to-filter 0.0 --output-mode EMIT_VARIANTS_ONLY --all-site-pls false --min-assembly-region-size 50 --max-assembly-region-size 300 --assembly-region-padding 100 --max-reads-per-alignment-start 50 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --minimum-mapping-quality 20 --max-read-length 2147483647 --min-read-length 30 --disable-tool-default-annotations false --enable-all-annotations false",Version=4.1.0.0,Date="December 20, 2021 7:24:39 PM UTC">
+##INFO=<ID=CONTQ,Number=1,Type=Float,Description="Phred-scaled qualities that alt allele are not due to contamination">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=ECNT,Number=1,Type=Integer,Description="Number of events in this haplotype">
+##INFO=<ID=GERMQ,Number=A,Type=Integer,Description="Phred-scaled qualities that alt allele are not germline variants">
+##INFO=<ID=MBQ,Number=R,Type=Integer,Description="median base quality">
+##INFO=<ID=MFRL,Number=R,Type=Integer,Description="median fragment length">
+##INFO=<ID=MMQ,Number=R,Type=Integer,Description="median mapping quality">
+##INFO=<ID=MPOS,Number=A,Type=Integer,Description="median distance from end of read">
+##INFO=<ID=NALOD,Number=A,Type=Float,Description="log odds of artifact in normal with same allele fraction as tumor">
+##INFO=<ID=NCount,Number=1,Type=Integer,Description="Count of N bases in the pileup">
+##INFO=<ID=NLOD,Number=A,Type=Float,Description="Normal LOD score">
+##INFO=<ID=OCM,Number=1,Type=Integer,Description="Number of alt reads whose original alignment doesn't match the current contig.">
+##INFO=<ID=PON,Number=0,Type=Flag,Description="site found in panel of normals">
+##INFO=<ID=POPAF,Number=A,Type=Float,Description="negative-log-10 population allele frequencies of alt alleles">
+##INFO=<ID=RPA,Number=.,Type=Integer,Description="Number of times tandem repeat unit is repeated, for each allele (including reference)">
+##INFO=<ID=RU,Number=1,Type=String,Description="Tandem repeat unit (bases)">
+##INFO=<ID=SAAF,Number=3,Type=Float,Description="MAP estimates of allele fraction given z">
+##INFO=<ID=SAPP,Number=3,Type=Float,Description="posterior probabilities of the presence of strand artifact">
+##INFO=<ID=STR,Number=0,Type=Flag,Description="Variant is a short tandem repeat">
+##INFO=<ID=TLOD,Number=A,Type=Float,Description="Log odds ratio score for variant">
+##INFO=<ID=UNIQ_ALT_READ_COUNT,Number=1,Type=Integer,Description="Number of ALT reads with unique start and mate end positions at a variant site">
+##MutectVersion=2.1
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+##contig=<ID=3,length=198022430>
+##contig=<ID=4,length=191154276>
+##contig=<ID=5,length=180915260>
+##contig=<ID=6,length=171115067>
+##contig=<ID=7,length=159138663>
+##contig=<ID=8,length=146364022>
+##contig=<ID=9,length=141213431>
+##contig=<ID=10,length=135534747>
+##contig=<ID=11,length=135006516>
+##contig=<ID=12,length=133851895>
+##contig=<ID=13,length=115169878>
+##contig=<ID=14,length=107349540>
+##contig=<ID=15,length=102531392>
+##contig=<ID=16,length=90354753>
+##contig=<ID=17,length=81195210>
+##contig=<ID=18,length=78077248>
+##contig=<ID=19,length=59128983>
+##contig=<ID=20,length=63025520>
+##contig=<ID=21,length=48129895>
+##contig=<ID=22,length=51304566>
+##contig=<ID=X,length=155270560>
+##contig=<ID=Y,length=59373566>
+##contig=<ID=MT,length=16569>
+##contig=<ID=GL000207.1,length=4262>
+##contig=<ID=GL000226.1,length=15008>
+##contig=<ID=GL000229.1,length=19913>
+##contig=<ID=GL000231.1,length=27386>
+##contig=<ID=GL000210.1,length=27682>
+##contig=<ID=GL000239.1,length=33824>
+##contig=<ID=GL000235.1,length=34474>
+##contig=<ID=GL000201.1,length=36148>
+##contig=<ID=GL000247.1,length=36422>
+##contig=<ID=GL000245.1,length=36651>
+##contig=<ID=GL000197.1,length=37175>
+##contig=<ID=GL000203.1,length=37498>
+##contig=<ID=GL000246.1,length=38154>
+##contig=<ID=GL000249.1,length=38502>
+##contig=<ID=GL000196.1,length=38914>
+##contig=<ID=GL000248.1,length=39786>
+##contig=<ID=GL000244.1,length=39929>
+##contig=<ID=GL000238.1,length=39939>
+##contig=<ID=GL000202.1,length=40103>
+##contig=<ID=GL000234.1,length=40531>
+##contig=<ID=GL000232.1,length=40652>
+##contig=<ID=GL000206.1,length=41001>
+##contig=<ID=GL000240.1,length=41933>
+##contig=<ID=GL000236.1,length=41934>
+##contig=<ID=GL000241.1,length=42152>
+##contig=<ID=GL000243.1,length=43341>
+##contig=<ID=GL000242.1,length=43523>
+##contig=<ID=GL000230.1,length=43691>
+##contig=<ID=GL000237.1,length=45867>
+##contig=<ID=GL000233.1,length=45941>
+##contig=<ID=GL000204.1,length=81310>
+##contig=<ID=GL000198.1,length=90085>
+##contig=<ID=GL000208.1,length=92689>
+##contig=<ID=GL000191.1,length=106433>
+##contig=<ID=GL000227.1,length=128374>
+##contig=<ID=GL000228.1,length=129120>
+##contig=<ID=GL000214.1,length=137718>
+##contig=<ID=GL000221.1,length=155397>
+##contig=<ID=GL000209.1,length=159169>
+##contig=<ID=GL000218.1,length=161147>
+##contig=<ID=GL000220.1,length=161802>
+##contig=<ID=GL000213.1,length=164239>
+##contig=<ID=GL000211.1,length=166566>
+##contig=<ID=GL000199.1,length=169874>
+##contig=<ID=GL000217.1,length=172149>
+##contig=<ID=GL000216.1,length=172294>
+##contig=<ID=GL000215.1,length=172545>
+##contig=<ID=GL000205.1,length=174588>
+##contig=<ID=GL000219.1,length=179198>
+##contig=<ID=GL000224.1,length=179693>
+##contig=<ID=GL000223.1,length=180455>
+##contig=<ID=GL000195.1,length=182896>
+##contig=<ID=GL000212.1,length=186858>
+##contig=<ID=GL000222.1,length=186861>
+##contig=<ID=GL000200.1,length=187035>
+##contig=<ID=GL000193.1,length=189789>
+##contig=<ID=GL000194.1,length=191469>
+##contig=<ID=GL000225.1,length=211173>
+##contig=<ID=GL000192.1,length=547496>
+##contig=<ID=NC_007605,length=171823>
+##contig=<ID=hs37d5,length=35477943>
+##filtering_status=These calls have been filtered by FilterMutectCalls to label false positives with a list of failed filters and true positives with PASS.
+##normal_sample=DU874145-N
+##source=FilterMutectCalls
+##source=Mutect2
+##tumor_sample=DU874145-T
+##bcftools_concatVersion=1.9+htslib-1.9
+##bcftools_concatCommand=concat --allow-overlaps DU874145-T__DU874145-N_agilent-0002-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0004-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0001-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0026-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0003-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0019-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0005-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0006-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0027-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0029-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0020-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0021-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0008-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0015-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0028-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0022-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0007-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0014-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0018-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0000-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0016-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0011-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0017-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0012-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0025-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0013-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0023-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0024-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0009-scattered.filtered.vcf.gz DU874145-T__DU874145-N_agilent-0010-scattered.filtered.vcf.gz; Date=Mon Dec 20 14:26:25 2021
+##bcftools_normVersion=1.9+htslib-1.9
+##bcftools_normCommand=norm --fasta-ref human_g1k_v37_decoy.fasta --check-ref s --multiallelics -both; Date=Mon Dec 20 14:26:25 2021
+##bcftools_normCommand=norm --rm-dup all; Date=Mon Dec 20 14:26:25 2021
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##bcftools_viewVersion=1.9+htslib-1.9
+##bcftools_viewCommand=view --samples DU874145-N,DU874145-T --output-type z --output-file DU874145-T__DU874145-N.mutect2.vcf.gz; Date=Mon Dec 20 14:26:25 2021
+##bcftools_isecVersion=1.9+htslib-1.9
+##bcftools_isecCommand=isec --output-type z --prefix DU874145-T.isec DU874145-T__DU874145-N.mutect2.vcf.gz DU874145-T__DU874145-N.strelka2.vcf.gz; Date=Mon Dec 20 14:33:44 2021
+##INFO=<ID=MuTect2,Number=0,Type=Flag,Description=Variant was called by MuTect2>
+##INFO=<ID=Strelka2,Number=0,Type=Flag,Description=Variant was called by Strelka2>
+##INFO=<ID=Strelka2FILTER,Number=0,Type=Flag,Description=Variant failed filters in Strelka2>
+##bcftools_annotateVersion=1.9+htslib-1.9
+##bcftools_annotateCommand=annotate --header-lines vcf.header --annotations DU874145-T.isec/0000.vcf.gz --mark-sites +MuTect2 --output-type z --output DU874145-T.isec/0000.annot.vcf.gz DU874145-T.isec/0000.vcf.gz; Date=Mon Dec 20 14:33:44 2021
+##fileDate=20211220
+##source_version=2.9.10
+##startTime=Mon Dec 20 14:26:39 2021
+##cmdline=/opt/conda/envs/strelka2-manta-bcftools-vt/bin/configureStrelkaSomaticWorkflow.py --exome --reportEVSFeatures --callRegions Agilent_Human_Exon_V4_hg19_Targets.sorted.merged.plus5bp.bed.gz --referenceFasta human_g1k_v37_decoy.fasta --indelCandidates Manta_DU874145-T__DU874145-N.candidateSmallIndels.vcf.gz --tumorBam DU874145-T.bam --normalBam DU874145-N.bam --runDir Strelka
+##reference=file:///scratch/pricea2/nxf.pLCklJOFOp/human_g1k_v37_decoy.fasta
+##content=strelka somatic indel calls
+##priorSomaticIndelRate=1e-06
+##INFO=<ID=QSI,Number=1,Type=Integer,Description="Quality score for any somatic variant, ie. for the ALT haplotype to be present at a significantly different frequency in the tumor and normal">
+##INFO=<ID=TQSI,Number=1,Type=Integer,Description="Data tier used to compute QSI">
+##INFO=<ID=NT,Number=1,Type=String,Description="Genotype of the normal in all data tiers, as used to classify somatic variants. One of {ref,het,hom,conflict}.">
+##INFO=<ID=QSI_NT,Number=1,Type=Integer,Description="Quality score reflecting the joint probability of a somatic variant and NT">
+##INFO=<ID=TQSI_NT,Number=1,Type=Integer,Description="Data tier used to compute QSI_NT">
+##INFO=<ID=SGT,Number=1,Type=String,Description="Most likely somatic genotype excluding normal noise states">
+##INFO=<ID=RC,Number=1,Type=Integer,Description="Number of times RU repeats in the reference allele">
+##INFO=<ID=IC,Number=1,Type=Integer,Description="Number of times RU repeats in the indel allele">
+##INFO=<ID=IHP,Number=1,Type=Integer,Description="Largest reference interrupted homopolymer length intersecting with the indel">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQ0,Number=1,Type=Integer,Description="Total Mapping Quality Zero Reads">
+##INFO=<ID=SOMATIC,Number=0,Type=Flag,Description="Somatic mutation">
+##INFO=<ID=OVERLAP,Number=0,Type=Flag,Description="Somatic indel possibly overlaps a second indel.">
+##INFO=<ID=SomaticEVS,Number=1,Type=Float,Description="Somatic Empirical Variant Score (EVS) expressing the phred-scaled probability of the call being a false positive observation.">
+##INFO=<ID=EVSF,Number=.,Type=Float,Description="Empirical variant scoring features.">
+##FORMAT=<ID=DP2,Number=1,Type=Integer,Description="Read depth for tier2">
+##FORMAT=<ID=TAR,Number=2,Type=Integer,Description="Reads strongly supporting alternate allele for tiers 1,2">
+##FORMAT=<ID=TIR,Number=2,Type=Integer,Description="Reads strongly supporting indel allele for tiers 1,2">
+##FORMAT=<ID=TOR,Number=2,Type=Integer,Description="Other reads (weak support or insufficient indel breakpoint overlap) for tiers 1,2">
+##FORMAT=<ID=DP50,Number=1,Type=Float,Description="Average tier1 read depth within 50 bases">
+##FORMAT=<ID=FDP50,Number=1,Type=Float,Description="Average tier1 number of basecalls filtered from original read depth within 50 bases">
+##FORMAT=<ID=SUBDP50,Number=1,Type=Float,Description="Average number of reads below tier1 mapping quality threshold aligned across sites within 50 bases">
+##FORMAT=<ID=BCN50,Number=1,Type=Float,Description="Fraction of filtered reads within 50 bases of the indel.">
+##FILTER=<ID=LowEVS,Description="Somatic Empirical Variant Score (SomaticEVS) is below threshold">
+##FILTER=<ID=LowDepth,Description="Tumor or normal sample read depth at this locus is below 2">
+##indel_scoring_features=SomaticIndelQualityAndHomRefGermlineGenotype,TumorSampleReadPosRankSum,TumorSampleLogSymmetricStrandOddsRatio,IndelRepeatCount,InterruptedHomopolymerLength,RefRepeatCount,RepeatUnitLength,TumorSampleIndelNoiseLogOdds,TumorNormalIndelAlleleLogOdds,AlleleCountLogOddsRatio,N_AF,T_AF,N_OF,T_OF,N_BCN,T_BCN,TumorSampleAbsReadPosRankSum,TumorSampleLogStrandOddsRatio,TumorSampleAbsLogStrandOddsRatio
+##priorSomaticSnvRate=0.0001
+##INFO=<ID=QSS,Number=1,Type=Integer,Description="Quality score for any somatic snv, ie. for the ALT allele to be present at a significantly different frequency in the tumor and normal">
+##INFO=<ID=TQSS,Number=1,Type=Integer,Description="Data tier used to compute QSS">
+##INFO=<ID=QSS_NT,Number=1,Type=Integer,Description="Quality score reflecting the joint probability of a somatic variant and NT">
+##INFO=<ID=TQSS_NT,Number=1,Type=Integer,Description="Data tier used to compute QSS_NT">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref read-position in the tumor">
+##INFO=<ID=SNVSB,Number=1,Type=Float,Description="Somatic SNV site strand bias">
+##INFO=<ID=PNOISE,Number=1,Type=Float,Description="Fraction of panel containing non-reference noise at this site">
+##INFO=<ID=PNOISE2,Number=1,Type=Float,Description="Fraction of panel containing more than one non-reference noise obs at this site">
+##FORMAT=<ID=FDP,Number=1,Type=Integer,Description="Number of basecalls filtered from original read depth for tier1">
+##FORMAT=<ID=SDP,Number=1,Type=Integer,Description="Number of reads with deletions spanning this site at tier1">
+##FORMAT=<ID=SUBDP,Number=1,Type=Integer,Description="Number of reads below tier1 mapping quality threshold aligned across this site">
+##FORMAT=<ID=AU,Number=2,Type=Integer,Description="Number of 'A' alleles used in tiers 1,2">
+##FORMAT=<ID=CU,Number=2,Type=Integer,Description="Number of 'C' alleles used in tiers 1,2">
+##FORMAT=<ID=GU,Number=2,Type=Integer,Description="Number of 'G' alleles used in tiers 1,2">
+##FORMAT=<ID=TU,Number=2,Type=Integer,Description="Number of 'T' alleles used in tiers 1,2">
+##snv_scoring_features=SomaticSNVQualityAndHomRefGermlineGenotype,NormalSampleRelativeTotalLocusDepth,TumorSampleAltAlleleFraction,RMSMappingQuality,ZeroMappingQualityFraction,TumorSampleStrandBias,TumorSampleReadPosRankSum,AlleleCountLogOddsRatio,NormalSampleFilteredDepthFraction,TumorSampleFilteredDepthFraction,TumorSampleAltAlleleMedianReadPosVariation,TumorSampleAltAlleleMedianReadPos,NormalSampleSpanningDeletionFraction,TumorSampleSpanningDeletionFraction
+##INFO=<ID=MuTect2;Strelka2,Number=0,Type=Flag,Description="Sites listed in MuTect2;Strelka2">
+##bcftools_concatCommand=concat --allow-overlaps --rm-dups all DU874145-T.isec/0000.annot.vcf.gz DU874145-T.isec/0001.annot.vcf.gz DU874145-T.isec/0002.annot.vcf.gz; Date=Mon Dec 20 14:33:44 2021
+##INFO=<ID=RepeatMasker,Number=1,Type=String,Description=RepeatMasker>
+##bcftools_annotateCommand=annotate --header-lines vcf.rm.header --annotations rmsk_mod.bed.gz --columns CHROM,FROM,TO,RepeatMasker; Date=Mon Dec 20 14:33:44 2021
+##INFO=<ID=EncodeDacMapability,Number=1,Type=String,Description=EncodeDacMapability>
+##bcftools_annotateCommand=annotate --header-lines vcf.map.header --annotations wgEncodeDacMapabilityConsensusExcludable.bed.gz --columns CHROM,FROM,TO,EncodeDacMapability --output-type z --output DU874145-T.union.vcf.gz; Date=Mon Dec 20 14:33:44 2021
+##INFO=<ID=non_cancer_AC_nfe_onf,Number=A,Type=Integer,Description="Alternate allele count for samples of Other Non-Finnish European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_onf,Number=A,Type=Float,Description="Alternate allele frequency in samples of Other Non-Finnish European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe_seu,Number=A,Type=Integer,Description="Alternate allele count for samples of Southern European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_seu,Number=A,Type=Float,Description="Alternate allele frequency in samples of Southern European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_eas,Number=A,Type=Integer,Description="Alternate allele count for samples of East Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_eas,Number=A,Type=Float,Description="Alternate allele frequency in samples of East Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_asj,Number=A,Type=Integer,Description="Alternate allele count for samples of Ashkenazi Jewish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_asj,Number=A,Type=Float,Description="Alternate allele frequency in samples of Ashkenazi Jewish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_eas_jpn,Number=A,Type=Integer,Description="Alternate allele count for samples of Japanese ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_eas_jpn,Number=A,Type=Float,Description="Alternate allele frequency in samples of Japanese ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_afr,Number=A,Type=Integer,Description="Alternate allele count for samples of African-American/African ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_afr,Number=A,Type=Float,Description="Alternate allele frequency in samples of African-American/African ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_amr,Number=A,Type=Integer,Description="Alternate allele count for samples of Latino ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_amr,Number=A,Type=Float,Description="Alternate allele frequency in samples of Latino ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_oth,Number=A,Type=Integer,Description="Alternate allele count for samples of Other ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_oth,Number=A,Type=Float,Description="Alternate allele frequency in samples of Other ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe_nwe,Number=A,Type=Integer,Description="Alternate allele count for samples of North-Western European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_nwe,Number=A,Type=Float,Description="Alternate allele frequency in samples of North-Western European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe_bgr,Number=A,Type=Integer,Description="Alternate allele count for samples of Bulgarian (Eastern European) ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_bgr,Number=A,Type=Float,Description="Alternate allele frequency in samples of Bulgarian (Eastern European) ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe_est,Number=A,Type=Integer,Description="Alternate allele count for samples of Estonian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_est,Number=A,Type=Float,Description="Alternate allele frequency in samples of Estonian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe,Number=A,Type=Integer,Description="Alternate allele count for samples of Non-Finnish European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe,Number=A,Type=Float,Description="Alternate allele frequency in samples of Non-Finnish European ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_nfe_swe,Number=A,Type=Integer,Description="Alternate allele count for samples of Swedish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_nfe_swe,Number=A,Type=Float,Description="Alternate allele frequency in samples of Swedish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC,Number=A,Type=Integer,Description="Alternate allele count for samples in the non_cancer subset">
+##INFO=<ID=non_cancer_AF,Number=A,Type=Float,Description="Alternate allele frequency in samples in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_fin,Number=A,Type=Integer,Description="Alternate allele count for samples of Finnish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_fin,Number=A,Type=Float,Description="Alternate allele frequency in samples of Finnish ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_eas_oea,Number=A,Type=Integer,Description="Alternate allele count for samples of Other East Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_eas_oea,Number=A,Type=Float,Description="Alternate allele frequency in samples of Other East Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_raw,Number=A,Type=Integer,Description="Alternate allele count for samples in the non_cancer subset, before removing low-confidence genotypes">
+##INFO=<ID=non_cancer_AF_raw,Number=A,Type=Float,Description="Alternate allele frequency in samples in the non_cancer subset, before removing low-confidence genotypes">
+##INFO=<ID=non_cancer_AC_sas,Number=A,Type=Integer,Description="Alternate allele count for samples of South Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_sas,Number=A,Type=Float,Description="Alternate allele frequency in samples of South Asian ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_eas_kor,Number=A,Type=Integer,Description="Alternate allele count for samples of Korean ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_eas_kor,Number=A,Type=Float,Description="Alternate allele frequency in samples of Korean ancestry in the non_cancer subset">
+##INFO=<ID=non_cancer_AC_popmax,Number=A,Type=Integer,Description="Allele count in the population with the maximum AF in the non_cancer subset">
+##INFO=<ID=non_cancer_AF_popmax,Number=A,Type=Float,Description="Maximum allele frequency across populations (excluding samples of Ashkenazi, Finnish, and indeterminate ancestry) in the non_cancer subset">
+##INFO=<ID=gnomAD_FILTER,Number=0,Type=Flag,Description="Sites listed in gnomAD_FILTER">
+##bcftools_annotateCommand=annotate --annotations gnomad.exomes.r2.1.1.sites.non_cancer.vcf.gz --columns INFO --output-type z --output DU874145-T.union.gnomad.vcf.gz DU874145-T.union.vcf.gz; Date=Mon Dec 20 14:33:44 2021
+##INFO=<ID=PoN,Number=1,Type=Integer,Description=Count in panel of normals>
+##bcftools_annotateCommand=annotate --header-lines vcf.pon.header --annotations wes.pon.vcf.gz --columns PoN:=AC_Het DU874145-T.union.gnomad.vcf.gz; Date=Mon Dec 20 14:35:53 2021
+##INFO=<ID=EX_MOTIF,Number=1,Type=String,Description="Canonical motif in a VNTR.">
+##INFO=<ID=EX_RU,Number=1,Type=String,Description="Repeat unit in the reference sequence.">
+##INFO=<ID=EX_BASIS,Number=1,Type=String,Description="Basis nucleotides in the motif.">
+##INFO=<ID=EX_MLEN,Number=1,Type=Integer,Description="Motif length.">
+##INFO=<ID=EX_BLEN,Number=1,Type=Integer,Description="Basis length.">
+##INFO=<ID=EX_REPEAT_TRACT,Number=2,Type=Integer,Description="Boundary of the repeat tract detected by exact alignment.">
+##INFO=<ID=EX_COMP,Number=4,Type=Integer,Description="Composition(%) of bases in an exact repeat tract.">
+##INFO=<ID=EX_ENTROPY,Number=1,Type=Float,Description="Entropy measure of an exact repeat tract [0,2].">
+##INFO=<ID=EX_ENTROPY2,Number=1,Type=Float,Description="Dinucleotide entropy measure of an exact repeat tract [0,4].">
+##INFO=<ID=EX_KL_DIVERGENCE,Number=1,Type=Float,Description="Kullback-Leibler Divergence of an exact repeat tract.">
+##INFO=<ID=EX_KL_DIVERGENCE2,Number=1,Type=Float,Description="Dinucleotide Kullback-Leibler Divergence of an exact repeat tract.">
+##INFO=<ID=EX_REF,Number=.,Type=Float,Description="Allele lengths in repeat units from exact alignment.">
+##INFO=<ID=EX_RL,Number=1,Type=Integer,Description="Reference exact repeat tract length in bases.">
+##INFO=<ID=EX_LL,Number=1,Type=Integer,Description="Longest exact repeat tract length in bases.">
+##INFO=<ID=EX_RU_COUNTS,Number=2,Type=Integer,Description="Number of exact repeat units and total number of repeat units in exact repeat tract.">
+##INFO=<ID=EX_SCORE,Number=1,Type=Float,Description="Score of repeat unit in exact repeat tract.">
+##INFO=<ID=EX_TRF_SCORE,Number=1,Type=Integer,Description="TRF Score for M/I/D as 2/-7/-7 in exact repeat tract.">
+##INFO=<ID=FZ_MOTIF,Number=1,Type=String,Description="Canonical motif in a VNTR.">
+##INFO=<ID=FZ_RU,Number=1,Type=String,Description="Repeat unit in the reference sequence.">
+##INFO=<ID=FZ_BASIS,Number=1,Type=String,Description="Basis nucleotides in the motif.">
+##INFO=<ID=FZ_MLEN,Number=1,Type=Integer,Description="Motif length.">
+##INFO=<ID=FZ_BLEN,Number=1,Type=Integer,Description="Basis length.">
+##INFO=<ID=FZ_REPEAT_TRACT,Number=2,Type=Integer,Description="Boundary of the repeat tract detected by fuzzy alignment.">
+##INFO=<ID=FZ_COMP,Number=4,Type=Integer,Description="Composition(%) of bases in a fuzzy repeat tract.">
+##INFO=<ID=FZ_ENTROPY,Number=1,Type=Float,Description="Entropy measure of a fuzzy repeat tract (0-2).">
+##INFO=<ID=FZ_ENTROPY2,Number=1,Type=Float,Description="Dinucleotide entropy measure of a fuzzy repeat tract (0-2).">
+##INFO=<ID=FZ_KL_DIVERGENCE,Number=1,Type=Float,Description="Kullback-Leibler Divergence of a fuzzyt repeat tract.">
+##INFO=<ID=FZ_KL_DIVERGENCE2,Number=1,Type=Float,Description="Dinucleotide Kullback-Leibler Divergence of a fuzzy repeat tract.">
+##INFO=<ID=FZ_REF,Number=.,Type=Float,Description="Allele lengths in repeat units from fuzzy alignment.">
+##INFO=<ID=FZ_RL,Number=1,Type=Integer,Description="Reference fuzzy repeat tract length in bases.">
+##INFO=<ID=FZ_LL,Number=1,Type=Integer,Description="Longest fuzzy repeat tract length in bases.">
+##INFO=<ID=FZ_RU_COUNTS,Number=2,Type=Integer,Description="Number of exact repeat units and total number of repeat units in fuzzy repeat tract.">
+##INFO=<ID=FZ_SCORE,Number=1,Type=Float,Description="Score of repeat unit in fuzzy repeat tract.">
+##INFO=<ID=FZ_TRF_SCORE,Number=1,Type=Integer,Description="TRF Score for M/I/D as 2/-7/-7 in fuzzy repeat tract.">
+##INFO=<ID=FLANKSEQ,Number=1,Type=String,Description="Flanking sequence 10bp on either side of REF.">
+##INFO=<ID=EXACT_RU_AMBIGUOUS,Number=0,Type=Flag,Description="Exact motif is ambiguous.">
+##INFO=<ID=Ref_Tri,Number=1,Type=String,Description="Normalize trinucleotide context of SNVs">
+##INFO=<ID=Custom_filters,Number=.,Type=String,Description="Custom filters, semi-colon separated">
+##bcftools_filterVersion=1.9+htslib-1.9
+##bcftools_filterCommand=filter --include FILTER="PASS" --output-type v --output DU874145-T__DU874145-N.vcf DU874145-T__DU874145-N.union.annot.filter.vcf; Date=Mon Dec 20 14:36:07 2021
+##FORMAT=<ID=ref_count_raw,Number=1,Type=Integer,Description=Raw reference allele depth>
+##FORMAT=<ID=ref_count_raw_fwd,Number=1,Type=Integer,Description=Raw reference allele depth on forward strand>
+##FORMAT=<ID=ref_count_raw_rev,Number=1,Type=Integer,Description=Raw reference allele depth on reverse strand>
+##FORMAT=<ID=depth_raw,Number=1,Type=Integer,Description=Raw total allele depth>
+##FORMAT=<ID=depth_raw_fwd,Number=1,Type=Integer,Description=Raw total allele depth on forward strand>
+##FORMAT=<ID=depth_raw_rev,Number=1,Type=Integer,Description=Raw total allele depth on reverse strand>
+##FORMAT=<ID=alt_count_raw,Number=1,Type=Integer,Description="Depth matching alternate (ALT) allele">
+##FORMAT=<ID=alt_count_raw_fwd,Number=1,Type=Integer,Description="Alternate depth on postitive strand">
+##FORMAT=<ID=alt_count_raw_rev,Number=1,Type=Integer,Description="Alternate depth on negative strand">
+##bcftools_annotateCommand=annotate --annotations DU874145-T__DU874145-N.genotyped.vcf.gz --header-lines vcf.ad_n.header --columns FORMAT/alt_count_raw:=FORMAT/AD,FORMAT/ref_count_raw:=FORMAT/RD,FORMAT/alt_count_raw_fwd:=FORMAT/ADP,FORMAT/ref_count_raw_fwd:=FORMAT/RDP,FORMAT/alt_count_raw_rev:=FORMAT/ADN,FORMAT/ref_count_raw_rev:=FORMAT/RDN,FORMAT/depth_raw:=FORMAT/DP,FORMAT/depth_raw_fwd:=FORMAT/DPP,FORMAT/depth_raw_rev:=FORMAT/DPN --output-type v --output DU874145-T__DU874145-N.union.annot.filter.pass.vcf DU874145-T__DU874145-N.vcf.gz; Date=Mon Dec 20 14:36:49 2021
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	DU874145-N	DU874145-T
+6	33235755	.	G	A	.	PASS	SOMATIC;QSS=16;TQSS=1;NT=ref;QSS_NT=16;TQSS_NT=1;SGT=GG->AG;DP=20;MQ=60;MQ0=0;ReadPosRankSum=-0.96;SNVSB=0;SomaticEVS=9.17;EVSF=16,1,0.4,60,0,0,-0.9594,-2.6768,0,0,20,46,0,0;Strelka2;non_cancer_AC_nfe_onf=8873;non_cancer_AF_nfe_onf=0.366078;non_cancer_AC_nfe_seu=4254;non_cancer_AF_nfe_seu=0.403682;non_cancer_AC_eas=11118;non_cancer_AF_eas=0.628704;non_cancer_AC_asj=4126;non_cancer_AF_asj=0.43395;non_cancer_AC_eas_jpn=81;non_cancer_AF_eas_jpn=0.675;non_cancer_AC_afr=6012;non_cancer_AF_afr=0.431959;non_cancer_AC_amr=11538;non_cancer_AF_amr=0.337507;non_cancer_AC_oth=2152;non_cancer_AF_oth=0.384973;non_cancer_AC_nfe_nwe=13908;non_cancer_AF_nfe_nwe=0.355922;non_cancer_AC_nfe_bgr=708;non_cancer_AF_nfe_bgr=0.381055;non_cancer_AC_nfe_est=50;non_cancer_AF_nfe_est=0.320513;non_cancer_AC_nfe=35955;non_cancer_AF_nfe=0.355624;non_cancer_AC_nfe_swe=8162;non_cancer_AF_nfe_swe=0.323401;non_cancer_AC=91008;non_cancer_AF=0.389086;non_cancer_AC_fin=8591;non_cancer_AF_fin=0.397364;non_cancer_AC_eas_oea=8414;non_cancer_AF_eas_oea=0.610152;non_cancer_AC_raw=91302;non_cancer_AF_raw=0.388228;non_cancer_AC_sas=11516;non_cancer_AF_sas=0.380166;non_cancer_AC_eas_kor=2623;non_cancer_AF_eas_kor=0.695019;non_cancer_AC_popmax=11118;non_cancer_AF_popmax=0.628704;PoN=72;FLANKSEQ=TCATTGCCCA[G]CAGAAACTGA;Ref_Tri=GCT	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	10:0:0:0:0,0:0,0:10,10:0,0:0:10:0:5:0:5:10:5:5	10:0:0:0:4,4:0,0:6,6:0,0:4:6:2:3:2:3:10:5:5
+6	33409529	.	C	A	.	PASS	SOMATIC;QSS=33;TQSS=1;NT=ref;QSS_NT=33;TQSS_NT=1;SGT=CC->AC;DP=43;MQ=60;MQ0=0;ReadPosRankSum=1.45;SNVSB=0;SomaticEVS=9.41;EVSF=33,1,0.13793,60,0,0,1.4546,-1.6327,0,0,21,51,0,0;Strelka2;FLANKSEQ=GATGCGGGAC[C]TCAACAGGTG;Ref_Tri=CCT;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	14:0:0:0:0,0:14,14:0,0:0,0:0:14:0:7:0:7:14:7:7	29:0:0:0:2,2:25,25:0,0:2,2:2:25:1:13:1:12:29:15:14
+17	7979865	.	C	A	.	PASS	SOMATIC;QSS=40;TQSS=1;NT=ref;QSS_NT=40;TQSS_NT=1;SGT=CC->AC;DP=55;MQ=60;MQ0=0;ReadPosRankSum=-1.53;SNVSB=0;SomaticEVS=16.27;EVSF=40,1,0.23529,60,0,0,-1.5286,-3.2189,0,0,5,5,0,0;Strelka2;FLANKSEQ=TCCCTCCCTT[C]ATGCCCCCTC;Ref_Tri=TCA;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	37:0:0:0:0,0:37,38:0,0:0,0:0:38:0:31:0:7:38:31:7	17:0:0:0:2,2:13,13:0,0:2,2:2:13:1:9:1:4:17:11:6
+17	7980452	.	G	A	.	PASS	SOMATIC;QSS=50;TQSS=1;NT=ref;QSS_NT=50;TQSS_NT=1;SGT=GG->AG;DP=453;MQ=60;MQ0=0;ReadPosRankSum=0.58;SNVSB=0;SomaticEVS=9.62;EVSF=50,1,0.033898,60,0,0,0.57956,-2.7839,0,0,28,40,0,0;Strelka2;FLANKSEQ=CTAGCAGCCA[G]TCCCACTCAG;Ref_Tri=ACT	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	217:0:0:0:0,0:0,0:217,217:0,0:0:217:0:104:0:113:217:104:113	236:0:0:0:7,7:0,0:228,228:1,1:7:228:4:110:3:118:236:114:122
+17	7984357	.	G	A	.	PASS	SOMATIC;QSS=35;TQSS=1;NT=ref;QSS_NT=35;TQSS_NT=1;SGT=GG->AG;DP=204;MQ=60;MQ0=0;ReadPosRankSum=-0.71;SNVSB=0;SomaticEVS=7.29;EVSF=35,1,0.061728,60,0,0,-0.70647,-1.2428,0,0,29,29,0,0;Strelka2;FLANKSEQ=AAGGGCCAGA[G]CCATCACTGC;Ref_Tri=GCT;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	122:0:0:0:1,1:0,0:120,121:1,1:1:121:1:69:0:52:123:70:53	81:0:0:0:4,4:0,0:76,76:1,1:4:76:2:40:2:36:81:42:39
+17	16004826	.	C	T	.	PASS	SOMATIC;QSS=40;TQSS=1;NT=ref;QSS_NT=40;TQSS_NT=1;SGT=CC->CT;DP=336;MQ=60;MQ0=0;ReadPosRankSum=-0.93;SNVSB=0;SomaticEVS=7.9;EVSF=40,1,0.042857,60,0,0,-0.92597,-1.8352,0,0.0070922,28,28,0,0;Strelka2;FLANKSEQ=GGATCACAAA[C]AGAACCCTCT;Ref_Tri=ACA;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	195:0:0:0:1,1:194,194:0,0:0,0:0:194:0:90:0:104:195:91:104	141:1:0:0:2,2:134,134:0,0:4,4:4:134:1:70:3:64:141:73:68
+17	16024476	.	C	T	.	PASS	SOMATIC;QSS=39;TQSS=1;NT=ref;QSS_NT=39;TQSS_NT=1;SGT=CC->CT;DP=301;MQ=60;MQ0=0;ReadPosRankSum=0.29;SNVSB=0;SomaticEVS=8.48;EVSF=39,1,0.035714,60,0,0,0.29487,-2.3684,0,0,29,58,0,0;Strelka2;FLANKSEQ=CCGGCCCTTA[C]GGCGGCCCTG;Ref_Tri=ACG;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	133:0:0:0:0,0:133,133:0,0:0,0:0:133:0:69:0:64:133:69:64	168:0:0:0:2,2:162,162:0,0:4,4:4:162:1:80:3:82:168:82:86
+17	16062076	.	G	T	.	PASS	SOMATIC;QSS=32;TQSS=1;NT=ref;QSS_NT=32;TQSS_NT=1;SGT=GG->GT;DP=213;MQ=60;MQ0=0;ReadPosRankSum=1.39;SNVSB=0;SomaticEVS=8.56;EVSF=32,1,0.056818,60,0,0,1.3879,-2.7893,0,0,23,50,0,0;Strelka2;FLANKSEQ=GAGCTTACCC[G]ATTCTCATCA;Ref_Tri=TCG;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	123:0:0:0:0,0:0,0:123,124:0,0:0:124:0:83:0:41:124:83:41	88:0:0:0:2,2:0,0:83,84:3,3:3:84:1:53:2:31:89:55:34
+17	17118508	.	C	T	.	PASS	SOMATIC;QSS=54;TQSS=1;NT=ref;QSS_NT=54;TQSS_NT=1;SGT=CC->CT;DP=353;MQ=60;MQ0=0;ReadPosRankSum=-2.46;SNVSB=0;SomaticEVS=8.72;EVSF=54,1,0.046667,60,0,0,-2.4637,-3.0525,0,0,12,26,0,0;Strelka2;non_cancer_AC_nfe_onf=0;non_cancer_AF_nfe_onf=0;non_cancer_AC_nfe_seu=0;non_cancer_AF_nfe_seu=0;non_cancer_AC_eas=0;non_cancer_AF_eas=0;non_cancer_AC_asj=0;non_cancer_AF_asj=0;non_cancer_AC_eas_jpn=0;non_cancer_AF_eas_jpn=0;non_cancer_AC_afr=0;non_cancer_AF_afr=0;non_cancer_AC_amr=0;non_cancer_AF_amr=0;non_cancer_AC_oth=0;non_cancer_AF_oth=0;non_cancer_AC_nfe_nwe=0;non_cancer_AF_nfe_nwe=0;non_cancer_AC_nfe_bgr=0;non_cancer_AF_nfe_bgr=0;non_cancer_AC_nfe_est=0;non_cancer_AF_nfe_est=0;non_cancer_AC_nfe=0;non_cancer_AF_nfe=0;non_cancer_AC_nfe_swe=0;non_cancer_AF_nfe_swe=0;non_cancer_AC=5;non_cancer_AF=2.11092e-05;non_cancer_AC_fin=5;non_cancer_AF_fin=0.000231675;non_cancer_AC_eas_oea=0;non_cancer_AF_eas_oea=0;non_cancer_AC_raw=5;non_cancer_AF_raw=2.11008e-05;non_cancer_AC_sas=0;non_cancer_AF_sas=0;non_cancer_AC_eas_kor=0;non_cancer_AF_eas_kor=0;FLANKSEQ=CCTCGGTCTG[C]AGCTACAGGG;Ref_Tri=GCA	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	202:0:0:0:0,0:202,202:0,0:0,0:0:202:0:109:0:93:202:109:93	150:0:0:0:0,0:143,144:0,0:7,7:7:144:2:71:5:73:151:73:78
+17	17118510	.	G	T	.	PASS	SOMATIC;QSS=38;TQSS=1;NT=ref;QSS_NT=38;TQSS_NT=1;SGT=GG->GT;DP=356;MQ=60;MQ0=0;ReadPosRankSum=-1.07;SNVSB=0;SomaticEVS=8.48;EVSF=38,1,0.039474,60,0,0,-1.074,-2.8936,0,0,28,33,0,0;Strelka2;FLANKSEQ=TCGGTCTGCA[G]CTACAGGGCT;Ref_Tri=GCT;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	203:0:0:0:0,0:0,0:203,203:0,0:0:203:0:108:0:95:203:108:95	152:0:0:0:2,2:0,0:146,147:4,4:4:147:2:72:2:75:153:75:78
+17	29670065	.	G	T	.	PASS	SOMATIC;QSS=55;TQSS=1;NT=ref;QSS_NT=55;TQSS_NT=1;SGT=GG->GT;DP=249;MQ=60;MQ0=0;ReadPosRankSum=-0.87;SNVSB=0;SomaticEVS=12.13;EVSF=55,1,0.064516,60,0,0,-0.86793,-3.14,0,0.010638,21,31,0,0;Strelka2;FLANKSEQ=GGAATCCTCT[G]GAGTGGCACT;Ref_Tri=CCA	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	155:0:0:0:0,0:0,0:155,155:0,0:0:155:0:90:0:65:155:90:65	94:1:0:0:1,1:0,0:87,87:5,5:5:88:2:48:3:40:94:51:43
+17	37650846	.	G	A	.	PASS	SOMATIC;QSS=55;TQSS=2;NT=ref;QSS_NT=55;TQSS_NT=2;SGT=GG->AG;DP=468;MQ=60;MQ0=0;ReadPosRankSum=2.8;SNVSB=0;SomaticEVS=9.52;EVSF=55,1,0.039548,60,0,0,2.7999,-3.2375,0,0.005618,11,7,0,0;Strelka2;FLANKSEQ=ACAGCCATTC[G]TGAAATCAAA;Ref_Tri=ACG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	289:0:0:0:0,0:0,0:289,289:0,0:0:289:0:128:0:161:289:128:161	178:1:0:0:7,7:0,0:170,171:0,0:7:172:5:83:2:89:179:88:91
+17	37676117	.	A	G	.	PASS	SOMATIC;QSS=18;TQSS=1;NT=ref;QSS_NT=18;TQSS_NT=1;SGT=AA->AG;DP=31;MQ=60;MQ0=0;ReadPosRankSum=0;SNVSB=0;SomaticEVS=11.49;EVSF=18,1,0.33333,60,0,0,0,-3.344,0,0,0,30,0,0;Strelka2;FLANKSEQ=AAAGTGCTGG[A]ATTACAGGTG;Ref_Tri=TTC	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	25:0:0:0:25,25:0,0:0,0:0,0:0:25:0:25:0:0:25:25:0	6:0:0:0:4,4:0,0:2,2:0,0:2:4:1:4:1:0:6:5:1
+17	37856593	.	C	T	.	PASS	SOMATIC;QSS=29;TQSS=1;NT=ref;QSS_NT=29;TQSS_NT=1;SGT=CC->CT;DP=189;MQ=60;MQ0=0;ReadPosRankSum=0.84;SNVSB=0;SomaticEVS=8.1;EVSF=29,1,0.054348,60,0,0,0.84392,-2.5061,0,0,15,12,0,0;Strelka2;FLANKSEQ=GGGGACGGAG[C]AGCGGCGGGA;Ref_Tri=GCA;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	97:0:0:0:0,0:97,97:0,0:0,0:0:97:0:33:0:64:97:33:64	92:0:0:0:1,1:87,87:0,0:4,4:4:87:2:37:2:50:92:40:52
+17	37884099	.	C	T	.	PASS	SOMATIC;QSS=48;TQSS=1;NT=ref;QSS_NT=48;TQSS_NT=1;SGT=CC->CT;DP=518;MQ=60;MQ0=0;ReadPosRankSum=-3.16;SNVSB=0;SomaticEVS=8.12;EVSF=48,1,0.031818,60,0,0,-3.1561,-3.0432,0,0,5,5,0,0;Strelka2;non_cancer_AC_nfe_onf=1;non_cancer_AF_nfe_onf=4.06901e-05;non_cancer_AC_nfe_seu=2;non_cancer_AF_nfe_seu=0.000188715;non_cancer_AC_eas=0;non_cancer_AF_eas=0;non_cancer_AC_asj=0;non_cancer_AF_asj=0;non_cancer_AC_eas_jpn=0;non_cancer_AF_eas_jpn=0;non_cancer_AC_afr=11;non_cancer_AF_afr=0.000740342;non_cancer_AC_amr=1;non_cancer_AF_amr=2.9209e-05;non_cancer_AC_oth=1;non_cancer_AF_oth=0.000178317;non_cancer_AC_nfe_nwe=1;non_cancer_AF_nfe_nwe=2.53859e-05;non_cancer_AC_nfe_bgr=0;non_cancer_AF_nfe_bgr=0;non_cancer_AC_nfe_est=0;non_cancer_AF_nfe_est=0;non_cancer_AC_nfe=4;non_cancer_AF_nfe=3.90175e-05;non_cancer_AC_nfe_swe=0;non_cancer_AF_nfe_swe=0;non_cancer_AC=17;non_cancer_AF=7.18543e-05;non_cancer_AC_fin=0;non_cancer_AF_fin=0;non_cancer_AC_eas_oea=0;non_cancer_AF_eas_oea=0;non_cancer_AC_raw=17;non_cancer_AF_raw=7.17427e-05;non_cancer_AC_sas=0;non_cancer_AF_sas=0;non_cancer_AC_eas_kor=0;non_cancer_AF_eas_kor=0;non_cancer_AC_popmax=11;non_cancer_AF_popmax=0.000740342;FLANKSEQ=TTGGGGGTGC[C]GTGGAGAACC;Ref_Tri=CCG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	298:0:0:0:0,0:298,298:0,0:0,0:0:298:0:153:0:145:298:153:145	220:0:0:0:0,0:213,213:0,0:7,7:7:213:2:102:5:111:220:104:116
+17	40457696	.	G	A	.	PASS	SOMATIC;QSS=51;TQSS=1;NT=ref;QSS_NT=51;TQSS_NT=1;SGT=GG->AG;DP=361;MQ=60;MQ0=0;ReadPosRankSum=-0.58;SNVSB=0;SomaticEVS=9.2;EVSF=51,1,0.040936,60,0,0,-0.58468,-1.7456,0,0,7,43,0,0;Strelka2;FLANKSEQ=CTACTGTGCT[G]TGGGACAATG;Ref_Tri=ACA	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	189:0:0:0:0,0:1,1:188,188:0,0:0:188:0:74:0:114:189:75:114	171:0:0:0:6,6:0,0:164,165:1,1:6:165:3:82:3:83:172:85:87
+17	43345029	.	C	T	.	PASS	SOMATIC;QSS=36;TQSS=1;NT=ref;QSS_NT=36;TQSS_NT=1;SGT=CC->CT;DP=516;MQ=60;MQ0=0;ReadPosRankSum=-3.46;SNVSB=0;SomaticEVS=7.45;EVSF=36,1,0.032407,60,0,0,-3.4614,-3.0688,0,0,3,4,0,0;Strelka2;non_cancer_AC_nfe_onf=1;non_cancer_AF_nfe_onf=4.1061e-05;non_cancer_AC_nfe_seu=0;non_cancer_AF_nfe_seu=0;non_cancer_AC_eas=0;non_cancer_AF_eas=0;non_cancer_AC_asj=0;non_cancer_AF_asj=0;non_cancer_AC_eas_jpn=0;non_cancer_AF_eas_jpn=0;non_cancer_AC_afr=0;non_cancer_AF_afr=0;non_cancer_AC_amr=1;non_cancer_AF_amr=2.93755e-05;non_cancer_AC_oth=0;non_cancer_AF_oth=0;non_cancer_AC_nfe_nwe=2;non_cancer_AF_nfe_nwe=5.24219e-05;non_cancer_AC_nfe_bgr=0;non_cancer_AF_nfe_bgr=0;non_cancer_AC_nfe_est=0;non_cancer_AF_nfe_est=0;non_cancer_AC_nfe=3;non_cancer_AF_nfe=2.97731e-05;non_cancer_AC_nfe_swe=0;non_cancer_AF_nfe_swe=0;non_cancer_AC=6;non_cancer_AF=2.57197e-05;non_cancer_AC_fin=0;non_cancer_AF_fin=0;non_cancer_AC_eas_oea=0;non_cancer_AF_eas_oea=0;non_cancer_AC_raw=6;non_cancer_AF_raw=2.5438e-05;non_cancer_AC_sas=2;non_cancer_AF_sas=6.55609e-05;non_cancer_AC_eas_kor=0;non_cancer_AF_eas_kor=0;non_cancer_AC_popmax=2;non_cancer_AF_popmax=6.55609e-05;FLANKSEQ=AAAGCTCTCT[C]GGCTGGGCAT;Ref_Tri=TCG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	300:0:0:0:0,0:300,300:0,0:0,0:0:300:0:150:0:150:300:150:150	216:0:0:0:1,1:209,209:0,0:6,6:6:209:3:106:3:103:216:110:106
+17	43364133	.	G	A	.	PASS	SOMATIC;QSS=89;TQSS=1;NT=ref;QSS_NT=89;TQSS_NT=1;SGT=GG->AG;DP=526;MQ=60;MQ0=0;ReadPosRankSum=2.36;SNVSB=0;SomaticEVS=10.07;EVSF=89,1,0.046154,60,0,0,2.3555,-3.5105,0.0030395,0,6,8,0,0;Strelka2;FLANKSEQ=TTCCAGGGCT[G]GAGAGGGTGG;Ref_Tri=CCA;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	329:1:0:0:0,0:0,0:328,330:0,0:0:330:0:162:0:168:330:162:168	195:0:0:0:7,7:0,0:186,187:2,2:7:187:4:93:3:94:196:98:98
+17	56448374	.	G	A	.	PASS	SOMATIC;QSS=69;TQSS=1;NT=ref;QSS_NT=69;TQSS_NT=1;SGT=GG->AG;DP=479;MQ=59.99;MQ0=0;ReadPosRankSum=-0.21;SNVSB=0;SomaticEVS=9.25;EVSF=69,1,0.041237,59.994,0,0,-0.21222,-2.1534,0.0035088,0,35,61,0,0;Strelka2;FLANKSEQ=CACTGGCATT[G]CACAGGTACA;Ref_Tri=GCA;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	285:1:0:0:0,0:0,1:283,283:1,1:0:283:0:127:0:156:285:128:157	194:0:0:0:5,5:0,0:186,186:3,3:5:186:3:86:2:100:194:90:104
+17	59861698	.	C	T	.	PASS	SOMATIC;QSS=38;TQSS=1;NT=ref;QSS_NT=38;TQSS_NT=1;SGT=CC->CT;DP=323;MQ=60;MQ0=0;ReadPosRankSum=-1.26;SNVSB=0;SomaticEVS=8.48;EVSF=38,1,0.046875,60,0,0,-1.2569,-3.0273,0,0,12,40,0,0;Strelka2;FLANKSEQ=TGAGTTGATG[C]ACTAATAACA;Ref_Tri=GCA	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	194:0:0:0:0,0:194,194:0,0:0,0:0:194:0:100:0:94:194:100:94	128:0:0:0:0,0:122,123:0,0:6,6:6:123:3:63:3:60:129:66:63
+17	62007691	.	C	T	.	PASS	SOMATIC;QSS=55;TQSS=1;NT=ref;QSS_NT=55;TQSS_NT=1;SGT=CC->CT;DP=207;MQ=60;MQ0=0;ReadPosRankSum=-0.32;SNVSB=0;SomaticEVS=13.04;EVSF=55,1,0.072289,60,0,0,-0.31652,-3.0309,0,0,29,62,0,0;Strelka2;FLANKSEQ=CACCGTGAAG[C]CCCGTTTCCT;Ref_Tri=GCC	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	123:0:0:0:0,0:123,124:0,0:0,0:0:124:0:50:0:74:124:50:74	83:0:0:0:1,1:77,77:0,0:5,5:5:77:2:36:3:41:83:39:44
+17	63554126	.	C	T	.	PASS	SOMATIC;QSS=49;TQSS=1;NT=ref;QSS_NT=49;TQSS_NT=1;SGT=CC->CT;DP=468;MQ=60;MQ0=0;ReadPosRankSum=-1.59;SNVSB=0;SomaticEVS=9.2;EVSF=49,1,0.034146,60,0,0,-1.5851,-2.9837,0.0038168,0,10,22,0,0;Strelka2;FLANKSEQ=GCTGTGTTTT[C]TCCCCCACTC;Ref_Tri=TCT	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	262:1:0:0:0,0:261,262:0,0:0,0:0:262:0:121:0:141:262:121:141	205:0:0:0:1,1:198,199:0,0:6,6:6:199:3:98:3:101:206:102:104
+17	70117828	.	G	A	.	PASS	SOMATIC;QSS=54;TQSS=1;NT=ref;QSS_NT=54;TQSS_NT=1;SGT=GG->AG;DP=338;MQ=60;MQ0=0;ReadPosRankSum=-1.52;SNVSB=0;SomaticEVS=10.12;EVSF=54,1,0.038043,60,0,0,-1.5195,-2.5628,0,0,22,22,0,0;Strelka2;non_cancer_AC_nfe_onf=0;non_cancer_AF_nfe_onf=0;non_cancer_AC_nfe_seu=0;non_cancer_AF_nfe_seu=0;non_cancer_AC_eas=0;non_cancer_AF_eas=0;non_cancer_AC_asj=0;non_cancer_AF_asj=0;non_cancer_AC_eas_jpn=0;non_cancer_AF_eas_jpn=0;non_cancer_AC_afr=0;non_cancer_AF_afr=0;non_cancer_AC_amr=0;non_cancer_AF_amr=0;non_cancer_AC_oth=0;non_cancer_AF_oth=0;non_cancer_AC_nfe_nwe=0;non_cancer_AF_nfe_nwe=0;non_cancer_AC_nfe_bgr=0;non_cancer_AF_nfe_bgr=0;non_cancer_AC_nfe_est=0;non_cancer_AF_nfe_est=0;non_cancer_AC_nfe=0;non_cancer_AF_nfe=0;non_cancer_AC_nfe_swe=0;non_cancer_AF_nfe_swe=0;non_cancer_AC=0;non_cancer_AF=0;non_cancer_AC_fin=0;non_cancer_AF_fin=0;non_cancer_AC_eas_oea=0;non_cancer_AF_eas_oea=0;non_cancer_AC_raw=5;non_cancer_AF_raw=2.11049e-05;non_cancer_AC_sas=0;non_cancer_AF_sas=0;non_cancer_AC_eas_kor=0;non_cancer_AF_eas_kor=0;gnomAD_FILTER;FLANKSEQ=AACGGCTCCA[G]CAAGAACAAG;Ref_Tri=GCT	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	153:0:0:0:0,0:0,0:153,154:0,0:0:154:0:64:0:90:154:64:90	184:0:0:0:6,6:0,0:177,177:1,1:6:177:4:79:2:98:184:83:101
+17	70119046	.	G	A	.	PASS	SOMATIC;QSS=33;TQSS=1;NT=ref;QSS_NT=33;TQSS_NT=1;SGT=GG->AG;DP=434;MQ=60;MQ0=0;ReadPosRankSum=1.5;SNVSB=0;SomaticEVS=7.01;EVSF=33,1,0.027668,60,0,0,1.5007,-1.2978,0,0,33,14,0,0;Strelka2;FLANKSEQ=TCTTCAAGGC[G]CTGCAGGCCG;Ref_Tri=GCG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	181:0:0:0:1,1:0,0:180,180:0,0:1:180:1:78:0:102:181:79:102	253:0:0:0:7,7:0,0:246,246:0,0:7:246:4:113:3:133:253:117:136
+17	70120412	.	G	A	.	PASS	SOMATIC;QSS=32;TQSS=1;NT=ref;QSS_NT=32;TQSS_NT=1;SGT=GG->AG;DP=865;MQ=60;MQ0=0;ReadPosRankSum=1.46;SNVSB=0;SomaticEVS=7.48;EVSF=32,1,0.018557,60,0,0,1.4573,-1.6182,0,0,20,10,0,0;Strelka2;FLANKSEQ=CATGAACCCC[G]CTCAGCGCCC;Ref_Tri=GCG;Custom_filters=multiallelic2	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	380:0:0:0:1,1:0,0:379,379:0,0:1:379:1:182:0:197:380:183:197	485:0:0:0:7,7:0,0:476,476:2,2:7:476:5:246:2:230:485:251:234
+17	74732443	.	G	A	.	PASS	SOMATIC;QSS=42;TQSS=1;NT=ref;QSS_NT=42;TQSS_NT=1;SGT=GG->AG;DP=363;MQ=60;MQ0=0;ReadPosRankSum=0.11;SNVSB=0;SomaticEVS=8.21;EVSF=42,1,0.028,60,0,0,0.10603,-1.927,0,0,18,1,0,0;Strelka2;non_cancer_AC_nfe_onf=0;non_cancer_AF_nfe_onf=0;non_cancer_AC_nfe_seu=1;non_cancer_AF_nfe_seu=9.45001e-05;non_cancer_AC_eas=0;non_cancer_AF_eas=0;non_cancer_AC_asj=0;non_cancer_AF_asj=0;non_cancer_AC_eas_jpn=0;non_cancer_AF_eas_jpn=0;non_cancer_AC_afr=0;non_cancer_AF_afr=0;non_cancer_AC_amr=0;non_cancer_AF_amr=0;non_cancer_AC_oth=0;non_cancer_AF_oth=0;non_cancer_AC_nfe_nwe=0;non_cancer_AF_nfe_nwe=0;non_cancer_AC_nfe_bgr=0;non_cancer_AF_nfe_bgr=0;non_cancer_AC_nfe_est=0;non_cancer_AF_nfe_est=0;non_cancer_AC_nfe=1;non_cancer_AF_nfe=9.9451e-06;non_cancer_AC_nfe_swe=0;non_cancer_AF_nfe_swe=0;non_cancer_AC=1;non_cancer_AF=4.26101e-06;non_cancer_AC_fin=0;non_cancer_AF_fin=0;non_cancer_AC_eas_oea=0;non_cancer_AF_eas_oea=0;non_cancer_AC_raw=1;non_cancer_AF_raw=4.22172e-06;non_cancer_AC_sas=0;non_cancer_AF_sas=0;non_cancer_AC_eas_kor=0;non_cancer_AF_eas_kor=0;non_cancer_AC_popmax=1;non_cancer_AF_popmax=9.9451e-06;gnomAD_FILTER;FLANKSEQ=GACCGAGATC[G]AGAACGAGTG;Ref_Tri=TCG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	111:0:0:0:0,0:0,0:111,112:0,0:0:112:0:44:0:68:112:44:68	250:0:0:0:6,6:0,0:243,244:1,1:6:244:5:111:1:133:251:116:135
+17	74733008	.	C	T	.	PASS	SOMATIC;QSS=29;TQSS=1;NT=ref;QSS_NT=29;TQSS_NT=1;SGT=CC->CT;DP=473;MQ=60;MQ0=0;ReadPosRankSum=-1.38;SNVSB=0;SomaticEVS=7.91;EVSF=29,1,0.023649,60,0,0,-1.3765,-2.2189,0,0,23,23,0,0;Strelka2;FLANKSEQ=CCGTCCAGCA[C]GGCCCCGTCC;Ref_Tri=ACG	DP:FDP:SDP:SUBDP:AU:CU:GU:TU:alt_count_raw:ref_count_raw:alt_count_raw_fwd:ref_count_raw_fwd:alt_count_raw_rev:ref_count_raw_rev:depth_raw:depth_raw_fwd:depth_raw_rev	177:0:0:0:0,0:177,177:0,0:0,0:0:177:0:98:0:79:177:98:79	296:0:0:0:0,0:289,289:0,0:7,7:7:289:3:151:4:138:296:154:142

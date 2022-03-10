@@ -1,0 +1,12 @@
+##fileformat=VCFv4.2
+##reference=GRCh37
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AF,Number=.,Type=Float,Description="Allele Fraction of Alt alelles at the position">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	GENIE-SAGE-1-1
+5	1294206	NM_198253.2:c.794delC	CG	C	.	clinicalReported	TIER=2	GT:AF:DP	0/1:0.05:117
+9	21971120	NM_000077.4:c.238C>T	G	A	.	clinicalReported	TIER=2	GT:AF:DP	0/1:0.7:27
+13	28608255	NM_004119.2:c.1797_1799delTGA	GATCA	GA	.	clinicalReported	TIER=2	GT:AF:DP	0/1:0.3:3331
+16	3781476	NM_004380.2:c.4891-3delC	TG	T	.	.	TIER=2	GT:AF:DP	0/1:0.08:118
+19	1619443	NM_003200.4:c.1196_1197delAG	CCT	C	.	.	TIER=2	GT:AF:DP	0/1:0.05:75
+21	36259252	NM_001754.4:c.238delG	TC	T	.	.	TIER=2	GT:AF:DP	0/1:0.05:80
